@@ -11,12 +11,22 @@ namespace FizzBuzzTest
     public class FizzBuzzTest
     {
         [TestMethod]
-        public void RunTest()
+        public void PrintFizzBuzzTest()
         {
+            //arrange
             using (StringWriter sw = new StringWriter()) 
             {
                 FizzBuzz fizzBuzz = new FizzBuzz();
-                var test = sw.GetStringBuilder();
+                var stringBuilder = sw.GetStringBuilder();
+                Console.SetOut(sw);
+                //Act
+                fizzBuzz.PrintFizzBuzz(44);
+                var consoleText = sw.ToString();
+                var lines = String.Join(Environment.NewLine, consoleText);
+                var expected = 44;
+                var actual = lines.Length;
+                Assert.AreEqual(expected, lines);
+                //Assert
             }
             
         }
@@ -33,7 +43,12 @@ namespace FizzBuzzTest
             Assert.AreEqual(90, fizzBuzz.CheckInput("90"));
         }
         [TestMethod]
-        public void PrintFizzbuzzTest()
+        public void GetInputTest()
+        {
+            
+        }
+        [TestMethod]
+        public void GetFizzBuzzStringTest()
         {
             FizzBuzz fizzBuzz = new FizzBuzz();
             for (int i = 1; i <= 300; i++)

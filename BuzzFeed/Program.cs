@@ -7,21 +7,19 @@ namespace BuzzFeed
         static void Main(string[] args)
         {
             FizzBuzz fizzbuzz = new FizzBuzz();
-            fizzbuzz.Run();
+            Console.WriteLine("enter a number between 1 to 300");
+            fizzbuzz.PrintFizzBuzz(44);
+            //kolla under 300
+            //köra
+
             Console.ReadKey();
         }
     }
     public class FizzBuzz
     {
-        public void Run()
+        public void PrintFizzBuzz(int num)
         {
-            int userInput = 0;
-            while (userInput == 0)
-            {
-                Console.WriteLine("enter a number between 1 to 300");
-                userInput = CheckInput(Console.ReadLine());
-            }
-            for (int i = 1; i <= userInput; i++)
+            for (int i = 1; i <= num; i++)
             {
                 Console.WriteLine(GetFizzBuzzString(i));
             }
@@ -36,6 +34,7 @@ namespace BuzzFeed
             }
             else
             {
+                Console.WriteLine("You entered the wrong number");
                 return 0;
             }
         }
