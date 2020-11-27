@@ -20,11 +20,11 @@ namespace FizzBuzzTest
 				var stringBuilder = sw.GetStringBuilder();
 				Console.SetOut(sw);
 				//Act
-				fizzBuzz.PrintFizzBuzz(10);
+				fizzBuzz.PrintFizzBuzz(150);
 				var consoleText = sw.ToString();
 				var lines = String.Join(Environment.NewLine, consoleText);
-				var expected = 10;
-				var actual = lines.Split('\n').Length -1;
+				var expected = 150;
+				var actual = lines.Split(Environment.NewLine).Length -1;
 				//Assert
 				Assert.AreEqual(expected, actual);
 			}
